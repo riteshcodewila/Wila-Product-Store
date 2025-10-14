@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon backend/server.js"
+    "dev": "cross-env NODE_ENV=development nodemon backend/server.js",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
+    "start": "cross-env NODE_ENV=production node backend/server.js"
   },
   "type": "module",
   "repository": {
@@ -19,12 +21,15 @@
   },
   "homepage": "https://github.com/riteshcodewila/Wila-Product-Store#readme",
   "dependencies": {
-    "dotenv": "^17.2.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
     "express": "^5.1.0",
+    "helmet": "^8.1.0",
     "mongodb": "^6.20.0",
-    "mongoose": "^8.18.2"
+    "mongoose": "^8.18.3"
   },
   "devDependencies": {
+    "cross-env": "^10.1.0",
     "nodemon": "^3.1.10"
   }
 }
